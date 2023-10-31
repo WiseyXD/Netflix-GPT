@@ -32,6 +32,16 @@ pnpm run dev or npm run dev
 
 # Features
 
-```
+-Login/Signup
+-redirect to Browse Page
 
-```
+-Browse
+-Header
+-Movie trailer
+-Title and Desc
+-Movie Suggestions Rows (Carousel)
+-N number of movies
+
+-Netflix GPT
+-Search
+-Recommendation List
