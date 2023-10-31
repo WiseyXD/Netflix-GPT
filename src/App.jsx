@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import Login from "./Components/Login";
-import Gpt from "./Components/Gpt";
+import Signup from "./Pages/Signup";
+import Gpt from "./Pages/Gpt";
 function App() {
 	const [count, setCount] = useState(0);
 
 	return (
 		<div>
 			<Routes>
-				<Route path="/" element={<Login />} />
+				<Route path="/" element={<Signup />} />
 				<Route path="/gpt" element={<Gpt />} />
 			</Routes>
 		</div>
