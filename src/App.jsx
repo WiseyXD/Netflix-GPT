@@ -1,14 +1,17 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-
+import { Route, Routes } from "react-router-dom";
+import Login from "./Components/Login";
+import Gpt from "./Components/Gpt";
 function App() {
 	const [count, setCount] = useState(0);
 
 	return (
-		<>
-			<button className="btn">Button</button>
-		</>
+		<div>
+			<Routes>
+				<Route path="/" element={<Login />} />
+				<Route path="/gpt" element={<Gpt />} />
+			</Routes>
+		</div>
 	);
 }
 

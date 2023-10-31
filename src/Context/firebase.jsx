@@ -1,3 +1,4 @@
+import { createContext } from "react";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -16,6 +17,12 @@ const firebaseConfig = {
 	measurementId: "G-5JD0H2K1V2",
 };
 
+const FirebaseContext = createContext(null);
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+export const FirebaseProvider = () => {
+	return <FirebaseContext.Provider value={{}}></FirebaseContext.Provider>;
+};
