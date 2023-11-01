@@ -90,14 +90,6 @@ export default function Login() {
 							className="input input-bordered w-full max-w-md"
 						/>
 						<label className="label">
-							<span className="label-text">Password</span>
-						</label>
-						<input
-							type="password"
-							placeholder="Password"
-							className="input input-bordered w-full max-w-md"
-						/>
-						<label className="label">
 							<span className="label-text">Confirm Password</span>
 						</label>
 						<input
