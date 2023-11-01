@@ -10,7 +10,7 @@ export default function Signup() {
 	}
 	return (
 		<div className="bg-hero-bg min-h-screen opacity-80">
-			<div className="bg-gradient-to-b from-black">
+			<div className="bg-gradient-to-b from-slate-400">
 				<div className="max-w-full w-4/5 mx-auto">
 					<Header />
 					{isLogin ? (

@@ -37,6 +37,14 @@ export default function Register({ setIsLogin, isLogin, handleLogin }) {
 						value={formik.values.signUpEmail}
 						onBlur={formik.handleBlur}
 					/>
+					{formik.errors.signUpEmail && (
+						<label className="label">
+							<span className="label-text-alt text-red-500">
+								{formik.errors.signUpEmail}
+							</span>
+						</label>
+					)}
+
 					<label className="label">
 						<span className="label-text">Password</span>
 					</label>
@@ -49,6 +57,13 @@ export default function Register({ setIsLogin, isLogin, handleLogin }) {
 						value={formik.values.signUpPassword}
 						onBlur={formik.handleBlur}
 					/>
+					{formik.errors.signUpPassword && (
+						<label className="label">
+							<span className="label-text-alt text-red-500">
+								{formik.errors.signUpPassword}
+							</span>
+						</label>
+					)}
 					<label className="label">
 						<span className="label-text">Confirm Password</span>
 					</label>
@@ -61,6 +76,13 @@ export default function Register({ setIsLogin, isLogin, handleLogin }) {
 						value={formik.values.signUpConfirmPassword}
 						onBlur={formik.handleBlur}
 					/>
+					{formik.errors.signUpConfirmPassword && (
+						<label className="label">
+							<span className="label-text-alt text-red-500">
+								{formik.errors.signUpConfirmPassword}
+							</span>
+						</label>
+					)}
 					<button className="btn btn-xs sm:btn-sm md:btn-md bg-red-600 text-white mt-4">
 						Sign Up
 					</button>

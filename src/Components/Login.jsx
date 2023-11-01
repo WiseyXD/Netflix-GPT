@@ -36,6 +36,13 @@ export default function Login({ isLogin, setIsLogin, handleLogin }) {
 						value={formik.values.email}
 						onBlur={formik.handleBlur}
 					/>
+					{formik.errors.email && (
+						<label className="label">
+							<span className="label-text-alt text-red-500">
+								{formik.errors.email}
+							</span>
+						</label>
+					)}
 					<label className="label">
 						<span className="label-text">Password</span>
 					</label>
@@ -49,6 +56,13 @@ export default function Login({ isLogin, setIsLogin, handleLogin }) {
 						value={formik.values.password}
 						onBlur={formik.handleBlur}
 					/>
+					{formik.errors.password && (
+						<label className="label">
+							<span className="label-text-alt text-red-500">
+								{formik.errors.password}
+							</span>
+						</label>
+					)}
 					<button
 						className="btn btn-xs sm:btn-sm md:btn-md bg-red-600 text-white mt-4"
 						type="submit"
