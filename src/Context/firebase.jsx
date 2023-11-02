@@ -1,7 +1,8 @@
 import { createContext } from "react";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { useContext } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,7 +23,24 @@ const FirebaseContext = createContext(null);
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-export const FirebaseProvider = () => {
-	return <FirebaseContext.Provider value={{}}></FirebaseContext.Provider>;
+export const useFirebase = () => useContext(FirebaseContext);
+export const FirebaseProvider = (props) => {
+	const signUpWithEmailAndPassword = (email, password) => {
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+				// Signed up
+				const user = userCredential.user;
+				// ...
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				// ..
+			});
+	};
+	return (
+		<FirebaseContext.Provider value={{ signUpWithEmailAndPassword }}>
+			{props.children}
+		</FirebaseContext.Provider>
+	);
 };

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Header from "../Components/Header";
 import BackgroundImage from "../assets/netflixbg.jpg";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
+
 export default function Signup() {
 	const [isLogin, setIsLogin] = useState(false);
+
 	function handleLogin() {
 		setIsLogin(!isLogin);
 	}

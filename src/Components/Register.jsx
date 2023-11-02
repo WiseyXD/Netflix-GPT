@@ -1,20 +1,28 @@
 import React from "react";
 import { useFormik } from "formik";
-import { loginAndSignupSchema } from "../schemas";
+import { signupSchema } from "../schemas";
+import { useFirebase } from "../Context/firebase";
 
 export default function Register({ setIsLogin, isLogin, handleLogin }) {
+	const firebase = useFirebase();
 	const formik = useFormik({
 		initialValues: {
 			signUpEmail: "",
 			signUpPassword: "",
 			signUpConfirmPassword: "",
 		},
-		validationSchema: loginAndSignupSchema,
+		validationSchema: signupSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
+			// alert(JSON.stringify(values, null, 2));
+
+			firebase.signUpWithEmailAndPassword(
+				values.signUpEmail,
+				values.signUpConfirmPassword
+			);
+			console.log(values);
 		},
 	});
-	console.log(formik.errors);
+
 	return (
 		<div className="flex justify-center items-center">
 			<form
@@ -83,7 +91,10 @@ export default function Register({ setIsLogin, isLogin, handleLogin }) {
 							</span>
 						</label>
 					)}
-					<button className="btn btn-xs sm:btn-sm md:btn-md bg-red-600 text-white mt-4">
+					<button
+						className="btn btn-xs sm:btn-sm md:btn-md bg-red-600 text-white mt-4"
+						type="submit"
+					>
 						Sign Up
 					</button>
 					<br />

@@ -1,18 +1,21 @@
 import { useFormik } from "formik";
-import { loginAndSignupSchema } from "../schemas";
+import { loginSchema } from "../schemas";
+import { useFirebase } from "../Context/firebase";
 
 export default function Login({ isLogin, setIsLogin, handleLogin }) {
+	const firebase = useFirebase();
+	console.log(firebase);
 	const formik = useFormik({
 		initialValues: {
 			email: "",
 			password: "",
 		},
-		validationSchema: loginAndSignupSchema,
+		validationSchema: loginSchema,
 		onSubmit: (values) => {
 			alert(JSON.stringify(values, null, 2));
 		},
 	});
-	console.log(formik.errors);
+
 	return (
 		<div className="flex justify-center items-center">
 			<form
