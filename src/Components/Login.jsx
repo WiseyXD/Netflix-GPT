@@ -12,7 +12,9 @@ export default function Login({ isLogin, setIsLogin, handleLogin }) {
 		},
 		validationSchema: loginSchema,
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
+			// if (formik.errors) return;
+			firebase.loginWithEmailAndPassword(values.email, values.password);
+			console.log(values);
 		},
 	});
 
