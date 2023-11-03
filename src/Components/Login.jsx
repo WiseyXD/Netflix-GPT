@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import { loginSchema } from "../schemas";
 import { useFirebase } from "../Context/firebase";
+import { useState } from "react";
 
 export default function Login({ isLogin, setIsLogin, handleLogin }) {
 	const firebase = useFirebase();
@@ -12,7 +13,6 @@ export default function Login({ isLogin, setIsLogin, handleLogin }) {
 		},
 		validationSchema: loginSchema,
 		onSubmit: (values) => {
-			// if (formik.errors) return;
 			firebase.loginWithEmailAndPassword(values.email, values.password);
 			console.log(values);
 		},

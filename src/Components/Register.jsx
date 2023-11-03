@@ -13,13 +13,10 @@ export default function Register({ setIsLogin, isLogin, handleLogin }) {
 		},
 		validationSchema: signupSchema,
 		onSubmit: (values) => {
-			// alert(JSON.stringify(values, null, 2));
-			// if (formik.errors) return;
 			firebase.signUpWithEmailAndPassword(
 				values.signUpEmail,
 				values.signUpConfirmPassword
 			);
-			console.log(values);
 		},
 	});
 
