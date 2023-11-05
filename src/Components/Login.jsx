@@ -3,7 +3,7 @@ import { loginSchema } from "../schemas";
 import { useFirebase } from "../Context/firebase";
 import { useState } from "react";
 
-export default function Login({ isLogin, setIsLogin, handleLogin }) {
+export default function Login({ handleLogin }) {
 	const firebase = useFirebase();
 	console.log(firebase);
 	const formik = useFormik({

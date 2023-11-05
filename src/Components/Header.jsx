@@ -6,8 +6,11 @@ import store from "../Context/store";
 export default function Header({ isLoggedIn }) {
 	const navigate = useNavigate();
 	const firebase = useFirebase();
-	const { displayName, photoURL } = useSelector((store) => store.auth.value);
-	console.log(displayName, photoURL);
+	let userDetails;
+	// if (isLoggedIn) {
+	// 	userDetails = useSelector((store) => store.auth.value);
+	// 	console.log(userDetails);
+	// }
 
 	return (
 		<>
@@ -30,7 +33,10 @@ export default function Header({ isLoggedIn }) {
 								className="btn btn-ghost btn-circle avatar"
 							>
 								<div className="w-10 rounded-full">
-									<img src={photoURL} alt="Profile Pic" />
+									<img
+										// src={userDetails.photoURL}
+										alt="Profile Pic"
+									/>
 								</div>
 							</label>
 							<ul

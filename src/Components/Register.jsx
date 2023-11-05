@@ -4,7 +4,7 @@ import { signupSchema } from "../schemas";
 import { useFirebase } from "../Context/firebase";
 import { useSelector } from "react-redux";
 import store from "../Context/store";
-export default function Register({ setIsLogin, isLogin, handleLogin }) {
+export default function Register({ handleLogin }) {
 	const firebaseError = useSelector((state) => state.auth.value);
 	console.log(firebaseError);
 	const firebase = useFirebase();
