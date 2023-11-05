@@ -4,7 +4,7 @@ import { signupSchema } from "../schemas";
 import { useFirebase } from "../Context/firebase";
 import { useSelector } from "react-redux";
 import store from "../Context/store";
-export default function Register({ handleLogin }) {
+export default function Register({ setIsLogin, isLogin, handleLogin }) {
 	const firebaseError = useSelector((state) => state.auth.value);
 	console.log(firebaseError);
 	const firebase = useFirebase();
@@ -89,13 +89,13 @@ export default function Register({ handleLogin }) {
 								</span>
 							</label>
 						)}
-						{firebaseError && (
+						{/* {firebaseError && (
 							<label className="label">
 								<span className="label-text-alt text-red-500">
 									{firebaseError}
 								</span>
 							</label>
-						)}
+						)} */}
 						<button
 							className="btn btn-xs sm:btn-sm md:btn-md bg-red-600 text-white mt-4"
 							type="submit"
