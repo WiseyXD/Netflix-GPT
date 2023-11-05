@@ -40,17 +40,9 @@ export default function Signup() {
 				<div className="max-w-full w-4/5 mx-auto">
 					<Header isLoggedIn={false} />
 					{isLogin ? (
-						<Login
-							setIsLogin={setIsLogin}
-							isLogin={isLogin}
-							handleLogin={handleLogin}
-						/>
+						<Login handleLogin={handleLogin} />
 					) : (
-						<Register
-							setIsLogin={setIsLogin}
-							isLogin={isLogin}
-							handleLogin={handleLogin}
-						/>
+						<Register handleLogin={handleLogin} />
 					)}
 				</div>
 			</div>
