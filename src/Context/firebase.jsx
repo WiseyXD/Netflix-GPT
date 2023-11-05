@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
@@ -7,16 +7,13 @@ import {
 	signInWithPopup,
 	GoogleAuthProvider,
 	signInWithEmailAndPassword,
-	onAuthStateChanged,
-	updateProfile,
-	signOut,
 } from "firebase/auth";
-import { useDispatch } from "react-redux";
-
-import store from "./store";
-import { addUser, handleError, removeUser } from "./Slices/authSlice";
+import { useContext } from "react";
 // TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
 	apiKey: "AIzaSyBp1ygqgXDElK43OlMcFkhMPwQ9ib1NFyw",
 	authDomain: "netflix-gpt-3737d.firebaseapp.com",
@@ -28,14 +25,13 @@ const firebaseConfig = {
 };
 
 const FirebaseContext = createContext(null);
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const auth = getAuth(app);
 const Gprovider = new GoogleAuthProvider();
-
 export const useFirebase = () => useContext(FirebaseContext);
-
 export const FirebaseProvider = (props) => {
-	const dispatch = useDispatch();
 	const signUpWithEmailAndPassword = (email, password) => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
@@ -44,7 +40,7 @@ export const FirebaseProvider = (props) => {
 				updateProfile(user, {
 					displayName: "Aryan Nagbanshi",
 					photoURL:
-						"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9s8Pa7ieVpyV5BaZqFFDr6gILtyp2UXN5eWGVm3L-xw&s",
+						"https://media.licdn.com/dms/image/D4D03AQGKaoOIpLfhBg/profile-displayphoto-shrink_200_200/0/1674924812150?e=1704326400&v=beta&t=BuGSUO44ettGcIWLdM4Fzj0tcGOB2cjCLEH-KTm4uN4",
 				})
 					.then(() => {
 						// Profile updated!
@@ -59,7 +55,6 @@ export const FirebaseProvider = (props) => {
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
-				dispatch(handleError(errorMessage));
 				// ..
 			});
 	};
@@ -97,7 +92,7 @@ export const FirebaseProvider = (props) => {
 				updateProfile(user, {
 					displayName: "Aryan Nagbanshi",
 					photoURL:
-						"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9s8Pa7ieVpyV5BaZqFFDr6gILtyp2UXN5eWGVm3L-xw&s",
+						"https://media.licdn.com/dms/image/D4D03AQGKaoOIpLfhBg/profile-displayphoto-shrink_200_200/0/1674924812150?e=1704326400&v=beta&t=BuGSUO44ettGcIWLdM4Fzj0tcGOB2cjCLEH-KTm4uN4",
 				})
 					.then(() => {
 						// Profile updated!
@@ -112,34 +107,8 @@ export const FirebaseProvider = (props) => {
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
-				dispatch(handleError(errorMessage));
+				console.log(errorMessage);
 			});
-	};
-
-	const logOut = () => {
-		signOut(auth)
-			.then(() => {
-				dispatch(removeUser());
-			})
-			.catch((error) => {
-				// An error happened.
-			});
-	};
-
-	const onStateChange = () => {
-		onAuthStateChanged(auth, (user) => {
-			if (user) {
-				// User is signed in, see docs for a list of available properties
-				// https://firebase.google.com/docs/reference/js/auth.user
-				const user2 = user;
-				return user2;
-				// ...
-			} else {
-				// User is signed out
-				// ...
-				return null;
-			}
-		});
 	};
 	return (
 		<FirebaseContext.Provider
@@ -147,8 +116,6 @@ export const FirebaseProvider = (props) => {
 				signUpWithEmailAndPassword,
 				googleSignIn,
 				loginWithEmailAndPassword,
-				onStateChange,
-				logOut,
 			}}
 		>
 			{props.children}
