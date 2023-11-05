@@ -89,13 +89,13 @@ export default function Register({ setIsLogin, isLogin, handleLogin }) {
 								</span>
 							</label>
 						)}
-						{/* {firebaseError && (
+						{firebaseError && (
 							<label className="label">
 								<span className="label-text-alt text-red-500">
 									{firebaseError}
 								</span>
 							</label>
-						)} */}
+						)}
 						<button
 							className="btn btn-xs sm:btn-sm md:btn-md bg-red-600 text-white mt-4"
 							type="submit"

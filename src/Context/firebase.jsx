@@ -44,7 +44,7 @@ export const FirebaseProvider = (props) => {
 				updateProfile(user, {
 					displayName: "Aryan Nagbanshi",
 					photoURL:
-						"https://media.licdn.com/dms/image/D4D03AQGKaoOIpLfhBg/profile-displayphoto-shrink_200_200/0/1674924812150?e=1704326400&v=beta&t=BuGSUO44ettGcIWLdM4Fzj0tcGOB2cjCLEH-KTm4uN4",
+						"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9s8Pa7ieVpyV5BaZqFFDr6gILtyp2UXN5eWGVm3L-xw&s",
 				})
 					.then(() => {
 						// Profile updated!
@@ -97,7 +97,7 @@ export const FirebaseProvider = (props) => {
 				updateProfile(user, {
 					displayName: "Aryan Nagbanshi",
 					photoURL:
-						"https://media.licdn.com/dms/image/D4D03AQGKaoOIpLfhBg/profile-displayphoto-shrink_200_200/0/1674924812150?e=1704326400&v=beta&t=BuGSUO44ettGcIWLdM4Fzj0tcGOB2cjCLEH-KTm4uN4",
+						"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9s8Pa7ieVpyV5BaZqFFDr6gILtyp2UXN5eWGVm3L-xw&s",
 				})
 					.then(() => {
 						// Profile updated!
