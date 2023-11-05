@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import Logo from "../assets/netflixLogo2.avif";
 import { useFirebase } from "../Context/firebase";
 import { useSelector } from "react-redux";
 import store from "../Context/store";
+import { useNavigate } from "react-router-dom";
 export default function Header({ isLoggedIn }) {
 	const navigate = useNavigate();
 	const firebase = useFirebase();
