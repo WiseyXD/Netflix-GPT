@@ -8,7 +8,7 @@ export default function Header({ isLoggedIn }) {
 	const firebase = useFirebase();
 	const { displayName, photoURL } = useSelector((store) => store.auth.value);
 	console.log(displayName, photoURL);
-
+// Null Day
 	return (
 		<>
 			{isLoggedIn ? (
